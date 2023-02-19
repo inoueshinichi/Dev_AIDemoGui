@@ -1,3 +1,5 @@
+"""共通ライブラリ
+"""
 
 import os
 import sys
@@ -42,12 +44,17 @@ import qimage2ndarray as qn;
 import openpyxl
 
 
+"""モジュールの読み込み
+"""
 
 sys.path.append("/".join([os.getcwd(), "internal"]))
+from internal.type_def import *   # typingによる型ヒント
+from internal.qt_pyside2 import * # Qt
+from internal.pytorch import *    # Pytorch 
 
-from internal.type_def import * # typingによる型ヒント
-from internal.qt_pyside2 import *
-# from internal.pytorch import * # @Note Loadに時間がかかるのでファイル毎にインポートすること
+sys.path.append("/".join([os.getcwd(), "camera"]))
+from camera.thread_camera_controller import *
+from camera.thread_camera_frame_reader import *
 
 
 

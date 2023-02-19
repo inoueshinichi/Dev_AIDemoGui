@@ -1,3 +1,5 @@
+"""Pytorchライブラリ
+"""
 
 import torch                          # 基本モジュール
 from torch.autograd import Variable   # 自動微分用
