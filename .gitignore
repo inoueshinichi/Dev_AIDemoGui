@@ -1,8 +1,9 @@
 # Directory
 .vscode/
 __pycache__/
-module/__pycache__/
-module/internal/__pycache__/
-module/aitoolkit/__pycache__/
-module/camera/__pycache__/
+aitoolkit/__pycache__/
+aitoolkit/ai/__pycache__/
+aitoolkit/camera/__pycache__/
+aitoolkit/internal/__pycache__/
+
 
