@@ -71,6 +71,7 @@ from PySide2.QtWidgets import (
     QStyledItemDelegate,
     QHBoxLayout,
     QGraphicsScene,
+    QGraphicsView,
     QGraphicsPixmapItem,
     QGraphicsPathItem,
     QGraphicsRectItem,

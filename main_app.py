@@ -3,9 +3,9 @@ import os
 import sys
 
 sys.path.append("/".join([os.getcwd(), 'ui']))
-sys.path.append("/".join([os.getcwd(), "module"]))
+sys.path.append("/".join([os.getcwd(), "aitoolkit"]))
 
-from module.common import *
+from aitookkit.common import *
 from startup_dialog import StartupDialog
 
 def main() -> None:

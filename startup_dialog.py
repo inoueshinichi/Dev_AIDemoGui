@@ -5,11 +5,11 @@ import sys
 sys.path.append("/".join([os.getcwd(), 'ui']))
 sys.path.append("/".join([os.getcwd(), "module"]))
 
-from module.common import *
+from aitookkit.common import *
 
 class StartupDialog(QDialog):
 
-    def __init__(self, parent: QWidget=None):
+    def __init__(self, parent: Optional[QWidget] = None):
         super().__init__(parent)
 
         self.ui: Any = None
