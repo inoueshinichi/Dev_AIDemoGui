@@ -1,5 +1,8 @@
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-
+from type_def import *
 from common import *
 
 class ProcessCameraFrameReader(metaclass=abc.ABCMeta):
@@ -18,7 +21,7 @@ class ProcessCameraFrameReader(metaclass=abc.ABCMeta):
 
         return wrapper
 
-    def __init__(self):
+    def __init__(self, queue_size : int = 1):
         self.device_id: Optional[int] = None
         self.target_fps: float = 0.0
         self.initialized: bool = False

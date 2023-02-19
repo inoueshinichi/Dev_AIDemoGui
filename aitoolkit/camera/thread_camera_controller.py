@@ -1,11 +1,17 @@
 
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from type_def import *
 from common import *
+
 from threading import Thread
 
 from thread_camera_frame_reader import ThreadCameraFrameReader
 from usb_thread_camera_frame_reader import UsbThreadCameraFrameReader
 
-UsbThreadCameraFrameReader = NewType("UsbThreadCameraFrameReader", ThreadCameraFrameReader)
+# UsbThreadCameraFrameReader = NewType("UsbThreadCameraFrameReader", ThreadCameraFrameReader)
 
 class ThreadCameraController:
 
@@ -42,9 +48,9 @@ class ThreadCameraController:
         # 追加
         self.registries[uni_name] = (worker_thread, camera_frame_reader)
 
-    def get_device_id(self, uni_name: str) -> Optional(Union[int, bytearray, str]):
+    def get_device_id(self, uni_name: str) -> Union[int, bytearray, str, None]:
         if uni_name in self.registries.keys():
-            return self.registries[uni_name][1]
+            return self.registries[uni_name][1].get_device_id()
         else:
             return None
 

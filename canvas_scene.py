@@ -3,10 +3,12 @@
 import os
 import sys
 
-sys.path.append("/".join([os.getcwd(), 'ui']))
-sys.path.append("/".join([os.getcwd(), "aitoolkit"]))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'ui'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'aitoolkit'))
 
-from aitookkit.common import *
+from aitoolkit.type_def import *
+from aitoolkit.common import *
+from aitoolkit.qt_pyside2 import *
 
 class CanvasScene(QGraphicsScene):
 
@@ -47,6 +49,9 @@ class CanvasScene(QGraphicsScene):
 
         # シーンサイズの設定
         self.setSceneRect(self.item_ddb_img.pixmap().rect())
+
+        # 描画シグナルを発行
+        self.update() 
 
 
     def reset_dib_img(self) -> None:
