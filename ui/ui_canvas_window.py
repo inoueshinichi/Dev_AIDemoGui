@@ -63,7 +63,7 @@ class Ui_CanvasWindow(object):
     # setupUi
 
     def retranslateUi(self, CanvasWindow):
-        CanvasWindow.setWindowTitle(QCoreApplication.translate("CanvasWindow", u"CanvasWindow", None))
+        CanvasWindow.setWindowTitle(QCoreApplication.translate("CanvasWindow", u"Canvas", None))
         self.lineEdit_image_status.setPlaceholderText(QCoreApplication.translate("CanvasWindow", u"Image Status...", None))
         self.label_view_scale.setText(QCoreApplication.translate("CanvasWindow", u"100%", None))
     # retranslateUi

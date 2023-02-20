@@ -8,8 +8,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'aitoolkit'))
 from aitoolkit.type_def import *
 from aitoolkit.qt_pyside2 import *
 
-# from startup_dialog import StartupDialog
-from canvas_window import CanvasWindow
+from startup_dialog import StartupDialog
 
 
 def main() -> None:
@@ -53,14 +52,11 @@ def main() -> None:
     screens : List[Any] = QApplication.screens()
     print("Qt App associated screens:", screens)
 
-    # startup_win = StartupDialog() #QMainWindow()
-    # startup_win.show()
+    startup_win : Any = StartupDialog()
+    startup_win.show()
 
-    canvas_win = CanvasWindow()
-    canvas_win.show()
 
     sys.exit(app.exec_()) 
-
 
 if __name__ == "__main__":
     main()

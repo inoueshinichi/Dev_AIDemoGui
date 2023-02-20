@@ -30,8 +30,10 @@ from PySide2.QtCore import (
     QRegExp,
     QBuffer,
     QIODevice,
-
+    QProcess,
 )
+
+from PySide2.QtCharts import QtCharts
 
 from PySide2.QtMultimedia import (
     QCameraInfo,
@@ -53,7 +55,6 @@ from PySide2.QtGui import (
     QDrag,
     QStandardItem,
     QStandardItemModel,
-
 )
 
 from PySide2.QtWidgets import (
@@ -83,5 +84,4 @@ from PySide2.QtWidgets import (
     QGraphicsLineItem,
     QInputDialog,
     QColorDialog,
-    
 )

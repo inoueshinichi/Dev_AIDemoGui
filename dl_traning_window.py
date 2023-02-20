@@ -1,4 +1,5 @@
-
+"""ディープラーニング学習画面
+"""
 import os
 import sys
 
@@ -9,27 +10,42 @@ from aitoolkit.type_def import *
 from aitoolkit.common import *
 from aitoolkit.qt_pyside2 import *
 
-from ui.ui_startup_dialog import Ui_StartupDialog
+from ui.ui_dl_training_window import Ui_DlTrainingWindow
 
-from dl_traning_window import DlTrainingWindow
+from dl_project import DlProject
+from dl_process_controller import DlProcessController
 
-class StartupDialog(QDialog):
+
+
+
+
+class DlTrainingWindow(QMainWindow):
 
     def __init__(self, parent: Optional[QWidget] = None):
         super().__init__(parent)
 
         # UI
-        self.ui: Any = Ui_StartupDialog()
+        self.ui: Any = Ui_DlTrainingWindow()
         self.ui.setupUi(self)
 
-        # DL/RL
-        self.dl_window: Optional[Any] = None
-        self.rl_window: Optional[Any] = None
+        # Workspace
+        self.workspace_path: Optional[str] = None
+
+        # Managed Projects
+        self.managed_projects: Optional[Dict[str, Optional[DlProject]]] = None
+
+        # Learning Child-Process Controller
+        self.dl_process_controller: Optional[DlProcessController] = None
+
+        # Learning Curve Chart
+        self.dl_learning_charts: Optional[Dict[str, DlTrainingWindow]] = None
+
+
 
         # Signal/Slot
         # self._toolbar_connection()
         # self._menubar_connection()
-        self._ui_connection()
+        # self._ui_connection()
         # self._custom_connection()
 
     def _toolbar_connection(self) -> None:
@@ -38,7 +54,6 @@ class StartupDialog(QDialog):
         :return:
         """
         raise NotImplementedError("ToolBarに関するSignal/Slotの接続")
-        
 
     def _menubar_connection(self) -> None:
         """
@@ -52,10 +67,7 @@ class StartupDialog(QDialog):
         UIに関するSignal/Slotの接続
         :return:
         """
-        # raise NotImplementedError("UIに関するSignal/Slotの接続")
-
-        # DL
-        self.ui.pushButton_DeepLearning.clicked.connect(self.display_dl_window)
+        raise NotImplementedError("UIに関するSignal/Slotの接続")
 
     def _custom_connection(self) -> None:
         """
@@ -64,9 +76,10 @@ class StartupDialog(QDialog):
         """
         raise NotImplementedError("ユーザー定義のカスタムSignal/Slotの接続")
 
-    def display_dl_window(self):
-        self.dl_window = DlTrainingWindow(self)
-        self.dl_window.show()
-        self.hide()
+    def _init_training_curve_chart(self):
+        """
+        学習曲線用QChartの初期化
+        """
+        training_curve_chart: QtCharts.QChart = QtCharts.QChart()
 
-    
+        training_curve_chart.setAnimationOptions(QtCharts.QChart.AllAnimations)

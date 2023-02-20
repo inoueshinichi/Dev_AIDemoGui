@@ -1,5 +1,6 @@
 # Directory
 /.vscode
+/.idia
 __pycache__/
 /ui/*.py
 
