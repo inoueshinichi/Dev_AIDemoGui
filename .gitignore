@@ -1,9 +1,6 @@
 # Directory
-.vscode/
+/.vscode
 __pycache__/
-aitoolkit/__pycache__/
-aitoolkit/ai/__pycache__/
-aitoolkit/camera/__pycache__/
-aitoolkit/internal/__pycache__/
+/ui/*.py
 
 
